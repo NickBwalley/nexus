@@ -37,6 +37,17 @@ body {
   background: rgba(51, 134, 255, 0.45);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  caret-color: #93c5fd;
+  box-shadow: 0 0 0 1000px #0b111d inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 .grid-bg {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),

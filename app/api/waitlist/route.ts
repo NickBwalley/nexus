@@ -27,13 +27,9 @@ export async function POST(request: Request) {
     .from("waitlist")
     .upsert(
       {
-        name: parsed.data.name,
         email: parsed.data.email,
         company: parsed.data.company,
-        role: parsed.data.role,
-        team_size: parsed.data.teamSize,
-        provider: parsed.data.provider,
-        challenge: parsed.data.challenge
+        role: parsed.data.role || null
       },
       { onConflict: "email" }
     )

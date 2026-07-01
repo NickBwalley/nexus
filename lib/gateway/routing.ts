@@ -21,7 +21,7 @@ export function estimateCost(model: string, promptTokens: number, completionToke
 
 export function buildSystemPrompt(taskType: TaskType) {
   return [
-    "You are Agentible Nexus, an AI control plane demonstration.",
+    "You are Nexus, an AI spend visibility product demonstration.",
     "Return a concise, practical answer for an engineering team.",
     `Task type: ${taskType}.`
   ].join(" ");

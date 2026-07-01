@@ -9,9 +9,9 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Agentible Nexus | AI Control Plane for Engineering Teams",
+  title: "Nexus | AI Spend Visibility",
   description:
-    "Route every AI request through one intelligent gateway with model routing, caching, analytics, and cost visibility."
+    "Understand and control your company's AI spending across OpenAI, Anthropic, Gemini, Cursor, GitHub Copilot, and more."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

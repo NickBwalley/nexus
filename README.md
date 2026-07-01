@@ -1,6 +1,8 @@
-# Agentible Nexus MVP
+# Nexus MVP
 
-Agentible Nexus is an AI control plane for engineering teams. The MVP demonstrates an intelligent AI gateway, model routing, prompt caching, spend visibility, a demo playground, dashboard analytics, and waitlist collection.
+Nexus helps companies understand and control AI spending. It gives engineering and IT teams a single place to track AI usage, monitor costs, and gain visibility across providers such as OpenAI, Anthropic, Gemini, Cursor, GitHub Copilot, and more.
+
+Nexus is powered by [Agentible](https://agentible.dev).
 
 ## Stack
 
@@ -46,7 +48,23 @@ The waitlist API upserts by email so duplicate submissions are handled gracefull
 
 ## API
 
+### `POST /api/waitlist`
+
+Accepts:
+
+```json
+{
+  "email": "founder@company.com",
+  "company": "Company",
+  "role": "CTO"
+}
+```
+
+`role` is optional.
+
 ### `POST /api/gateway`
+
+The gateway API remains available for product experiments and future demo work.
 
 Input:
 
@@ -57,17 +75,6 @@ Input:
   "userEmail": "demo@agentible.ai"
 }
 ```
-
-Routing:
-
-- `planning`, `architecture`, `reasoning` route to `gpt-4o`
-- `coding`, `debugging`, `refactoring`, `summary`, `documentation`, `extraction`, `classification` route to `gpt-4o-mini`
-
-The route checks Upstash Redis first, calls OpenAI on a miss, stores the response for 24 hours, and logs metadata to Supabase.
-
-### `POST /api/waitlist`
-
-Accepts name, email, company, role, team size, current provider, and biggest AI cost challenge.
 
 ### `GET /api/dashboard`
 
