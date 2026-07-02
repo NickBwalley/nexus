@@ -33,6 +33,8 @@ Copy `.env.example` to `.env.local` and fill in:
 OPENAI_API_KEY=
 NEXT_PUBLIC_SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
+RESEND_API_KEY=
+RESEND_FROM_EMAIL="Agentible Nexus <onboarding@resend.dev>"
 UPSTASH_REDIS_REST_URL=
 UPSTASH_REDIS_REST_TOKEN=
 ```
@@ -46,6 +48,8 @@ Run `supabase/schema.sql` in your Supabase SQL editor. It creates:
 
 The waitlist API upserts by email so duplicate submissions are handled gracefully.
 
+For an existing database, run `supabase/waitlist-profile-fields-migration.sql` to add the new waitlist fields.
+
 ## API
 
 ### `POST /api/waitlist`
@@ -54,13 +58,15 @@ Accepts:
 
 ```json
 {
+  "name": "Founder Name",
   "email": "founder@company.com",
   "company": "Company",
-  "role": "CTO"
+  "role": "CTO",
+  "suggestions": "I would like spend alerts by team."
 }
 ```
 
-`role` is optional.
+`role` and `suggestions` are optional. Set `RESEND_API_KEY` to send confirmation emails to new signups and owner notifications to `nickbiiybwalley@gmail.com`.
 
 ### `POST /api/gateway`
 

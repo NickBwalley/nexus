@@ -18,7 +18,9 @@ export const gatewaySchema = z.object({
 });
 
 export const waitlistSchema = z.object({
+  name: z.string().trim().min(2).max(140),
   email: z.string().trim().email().max(160),
   company: z.string().trim().min(2).max(140),
-  role: z.string().trim().max(120).optional().or(z.literal(""))
+  role: z.string().trim().max(120).optional().or(z.literal("")),
+  suggestions: z.string().trim().max(1000).optional().or(z.literal(""))
 });

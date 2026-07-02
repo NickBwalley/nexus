@@ -11,7 +11,12 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata: Metadata = {
   title: "Nexus | AI Spend Visibility",
   description:
-    "Understand and control your company's AI spending across OpenAI, Anthropic, Gemini, Cursor, GitHub Copilot, and more."
+    "Understand and control your company's AI spending across OpenAI, Anthropic, Gemini, Cursor, GitHub Copilot, and more.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg"
+  }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
